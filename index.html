@@ -2668,9 +2668,137 @@
     /* scroll beam glow in light */
     body.light-mode .haze { background: radial-gradient(circle at 50% 72%, rgba(0,0,0,.05), transparent 24%), radial-gradient(circle at 45% 78%, rgba(0,0,0,.04), transparent 18%), radial-gradient(circle at 58% 80%, rgba(0,0,0,.04), transparent 16%); }
     body.light-mode .floor-reflection { background: radial-gradient(circle, rgba(0,0,0,.08), transparent 68%); }
-    /* vs photo stays full color */
-    body.light-mode .vs-label { color: rgba(255,255,255,.5); }
+    /* vs photo: 照片背景是深色，文字保持白色 */
+    body.light-mode .vs-label { color: rgba(255,255,255,.6); }
     body.light-mode .vs-title { color: #fff; }
+    body.light-mode .vs-desc  { color: rgba(255,255,255,.82); }
+
+    /* ══════════════════════════════════════════════
+       LIGHT MODE — 色彩系统 (Apple accent palette)
+       主色 blue #0071e3 / 绿 #30d158 / 紫 #5e5ce6
+    ══════════════════════════════════════════════ */
+
+    /* — 进度 / 播放头 — */
+    body.light-mode .progress-fill {
+      background: linear-gradient(90deg, #5ac8fa, #0071e3);
+    }
+    body.light-mode .playhead {
+      background: #0071e3;
+      box-shadow: 0 0 14px rgba(0,113,227,.5);
+    }
+    body.light-mode .record-cursor {
+      background: #ff3b30;
+      box-shadow: 0 0 12px rgba(255,59,48,.45);
+    }
+    body.light-mode .rec-led {
+      background: #ff3b30;
+      box-shadow: 0 0 12px rgba(255,59,48,.55);
+    }
+
+    /* — 音频电平仪表 — */
+    body.light-mode .mini-meter-fill {
+      background: linear-gradient(180deg, #30d158, #34c759 60%, #ffd60a);
+    }
+
+    /* — EQ 曲线 & 控制点 — */
+    body.light-mode #eqCurvePath { stroke: #5e5ce6; }
+    body.light-mode .eq-band {
+      background: #5e5ce6;
+      box-shadow: 0 0 10px rgba(94,92,230,.5);
+    }
+
+    /* — 数据条 — */
+    body.light-mode .data-bar-fill {
+      background: linear-gradient(90deg, #5ac8fa, #0071e3);
+    }
+
+    /* — 音高/节奏条 (VocalSmart) — already blue-purple, keep — */
+
+    /* — Orbit 轨道点 — */
+    body.light-mode .orbit-dot {
+      background: #0071e3;
+      box-shadow: 0 0 16px rgba(0,113,227,.55);
+    }
+
+    /* — MIDI 脉冲 — */
+    body.light-mode .mc-pulse {
+      background: #0071e3;
+      box-shadow: 0 0 12px 4px rgba(0,113,227,.45);
+    }
+    body.light-mode .mc-jack { background: #1d1d1f; }
+    body.light-mode .mc-led {
+      background: #30d158;
+      box-shadow: 0 0 8px rgba(48,209,88,.6);
+    }
+
+    /* — 音响音波 — */
+    body.light-mode .wave { stroke: #0071e3; }
+    body.light-mode .pulse { stroke: rgba(0,113,227,.22); }
+    body.light-mode .signal-run::before {
+      background: linear-gradient(90deg, transparent, #0071e3, transparent);
+    }
+    body.light-mode .sound-rings span {
+      border-color: rgba(0,113,227,.3);
+    }
+
+    /* — 信号流动箭头 — */
+    body.light-mode .live-arrow::after {
+      background: #0071e3;
+      box-shadow: 0 0 8px rgba(0,113,227,.5);
+    }
+
+    /* — 录制游标 — */
+    body.light-mode .edit-head {
+      background: #0071e3;
+      box-shadow: 0 0 8px rgba(0,113,227,.45);
+    }
+    body.light-mode .edit-head::before {
+      border-top-color: #0071e3;
+    }
+
+    /* — 推子帽 & 旋钮指针 — */
+    body.light-mode .fader-cap {
+      background: linear-gradient(180deg, #1d1d1f, #444);
+    }
+    body.light-mode .analog-knob::after { background: #0071e3; }
+    body.light-mode .eq-knob::after     { background: #5e5ce6; }
+    body.light-mode .vintage-needle     { background: #ff3b30; box-shadow: 0 0 8px rgba(255,59,48,.3); }
+
+    /* — 卡片高亮边框 (极细蓝线) — */
+    body.light-mode .nm-card.nm-card-data { border-color: rgba(0,113,227,.18); }
+    body.light-mode .tc-active {
+      background: rgba(0,113,227,.10);
+      border-color: rgba(0,113,227,.28);
+      color: #0071e3;
+    }
+    body.light-mode .ai-badge-on {
+      background: rgba(94,92,230,.10);
+      border-color: rgba(94,92,230,.28);
+      color: #5e5ce6;
+    }
+    body.light-mode .vs-tag {
+      background: rgba(0,113,227,.08);
+      border-color: rgba(0,113,227,.22);
+      color: #0071e3;
+    }
+
+    /* — live 指示灯 — */
+    body.light-mode .live-ind-on, body.light-mode .live-ind-pulse {
+      background: #30d158;
+      box-shadow: 0 0 10px rgba(48,209,88,.45);
+    }
+
+    /* — 灯光射束在亮色下用蓝紫光 — */
+    body.light-mode .beam-fan {
+      background: linear-gradient(180deg, rgba(94,92,230,.28), rgba(94,92,230,.10) 18%, rgba(94,92,230,0) 82%);
+    }
+    body.light-mode .floor-reflection {
+      background: radial-gradient(circle, rgba(94,92,230,.12), transparent 68%);
+    }
+
+    /* — 主题切换按钮在亮色下加蓝边 — */
+    body.light-mode .theme-toggle { border: 1px solid rgba(0,113,227,.18); }
+    body.light-mode .print-btn    { border: 1px solid rgba(0,0,0,.10); }
 
     /* ══════════════════════════════════════════════
        PRINT STYLES
