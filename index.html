@@ -2864,34 +2864,8 @@
       /* 直播流程图形 */
       .live-chain { display: none !important; }
 
-      /* ── Hero 简化：紧凑横排，不占整页 ── */
-      .hero-page {
-        min-height: unset !important;
-        height: auto !important;
-        padding: 0 0 20px !important;
-        background: #fff !important;
-        break-after: avoid !important;
-        page-break-after: avoid !important;
-      }
-      .hero-inner {
-        display: flex !important;
-        flex-direction: row !important;
-        gap: 20px !important;
-        align-items: flex-start !important;
-        padding: 0 !important;
-      }
-      .hero-photo-wrap {
-        width: 80px !important;
-        height: 80px !important;
-        flex: 0 0 80px !important;
-        min-width: 80px !important;
-      }
-      .hero-photo {
-        width: 80px !important;
-        height: 80px !important;
-        border-radius: 10px !important;
-        object-fit: cover !important;
-      }
+      /* ── Hero 打印时完全隐藏（信息已在打印头里） ── */
+      .hero-page { display: none !important; }
       .hero-name { font-size: 28px !important; margin-bottom: 4px !important; }
       .hero-eyebrow { font-size: 10px !important; margin-bottom: 6px !important; }
       .hero-tagline { font-size: 13px !important; margin-bottom: 8px !important; }
@@ -3506,7 +3480,7 @@
   <!-- 打印专用头部（仅 @media print 可见） -->
   <div class="print-header" id="printHeader">
     <div class="ph-name">藏天宇</div>
-    <div class="ph-target">演出技术制作 · 音频 AI · 应用开发 &nbsp;·&nbsp; 2026</div>
+    <div class="ph-target">演出技术制作 · 音频 AI · 应用开发</div>
     <div class="ph-contacts">
       <span>📞 19140533909</span>
       <span>✉️ zty1696761994@163.com</span>
