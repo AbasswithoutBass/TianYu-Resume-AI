@@ -2838,11 +2838,18 @@
       .vocal-stage { display: none !important; }
       #aiNodesCanvas { display: none !important; }
 
-      /* 灯光音响：隐藏灯架图、喇叭模型、信号图 */
-      .light-scene, .audio-scene,
+      /* 灯光音响：只隐藏图形元素，保留文字 */
       .sound-rings, .speaker, .console,
       .beam-fan, .moving-head, .haze, .floor-reflection,
       .signal-flow, .signal-run { display: none !important; }
+      /* 场景容器：去掉动效外壳，保留文字内容 */
+      .light-scene, .audio-scene {
+        background: none !important;
+        border: none !important;
+        box-shadow: none !important;
+        padding: 6px 0 !important;
+        min-height: 0 !important;
+      }
       /* 保留文字描述 */
       .systems-grid { display: block !important; }
       .scene-title, .scene-bullets { display: block !important; }
@@ -2885,18 +2892,24 @@
         background: #fff !important;
       }
 
-      /* ── flow-step 盒子：收缩高度，去除空壳感 ── */
+      /* ── flow-step 盒子：去除视觉外壳，保留文字内容 ── */
       .flow-step {
         min-height: 0 !important;
         height: auto !important;
-        padding: 14px 16px !important;
+        padding: 6px 0 8px !important;
+        border: none !important;
+        border-bottom: 1px solid #e0e0e0 !important;
+        border-radius: 0 !important;
+        background: none !important;
+        box-shadow: none !important;
         break-inside: avoid !important;
         page-break-inside: avoid !important;
-        margin-bottom: 10px !important;
+        margin-bottom: 6px !important;
       }
       /* step-body 已被隐藏，step-skills 直接贴着 step-tag */
-      .step-skills { margin-top: 8px !important; }
-      .step-skills .skill-item { font-size: 12px !important; line-height: 1.6 !important; }
+      .step-tag { font-size: 13px !important; font-weight: 600 !important; }
+      .step-skills { margin-top: 6px !important; }
+      .step-skills .skill-item { font-size: 11px !important; line-height: 1.5 !important; }
 
       /* ── 产品卡片：visual 隐藏后 copy 撑满宽度 ── */
       .product-grid { display: block !important; }
@@ -2916,10 +2929,14 @@
       .proj-card,
       .ai-tool-card,
       .nm-card, .media-metric,
-      .product-card, .flow-step,
-      .light-scene, .audio-scene {
+      .flow-step {
         break-inside: avoid !important;
         page-break-inside: avoid !important;
+      }
+      /* 产品卡片允许跨页，让两张卡连续排列 */
+      .product-card {
+        break-inside: auto !important;
+        page-break-inside: auto !important;
       }
 
       /* ── 多列布局 → 单列（避免列间断页） ── */
@@ -2959,13 +2976,17 @@
       }
 
       /* ── Section header 紧凑 ── */
-      .section-header { margin-bottom: 16px !important; }
-      .section-title { font-size: 20px !important; }
-      .section-kicker { font-size: 10px !important; }
-      .section-sub { font-size: 12px !important; }
-      .systems-intro { margin-bottom: 16px !important; }
-      .systems-intro h2 { font-size: 18px !important; }
-      .systems-intro p { font-size: 12px !important; }
+      .section-header { margin-bottom: 10px !important; }
+      .section-title { font-size: 17px !important; }
+      .section-kicker { font-size: 9px !important; margin-bottom: 2px !important; }
+      .section-sub { font-size: 11px !important; }
+      .systems-intro { margin-bottom: 12px !important; }
+      .systems-intro h2 { font-size: 16px !important; }
+      .systems-intro p { font-size: 11px !important; }
+
+      /* ── 打印头与第一个板块之间缩小间距 ── */
+      .print-header + * { margin-top: 0 !important; }
+      .work-stage:first-of-type { padding-top: 4px !important; }
 
       /* ── 时间线 ── */
       .timeline { width: 100% !important; }
