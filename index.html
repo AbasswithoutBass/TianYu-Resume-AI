@@ -2825,29 +2825,65 @@
       /* Print header shown */
       .print-header { display: block !important; }
 
-      /* ── 隐藏纯装饰性/复杂动画板块 ── */
-      /* 代码演示区：纯交互动画，打印无意义 */
+      /* ══ 隐藏纯视觉/动画组件，打印只保留文字 ══ */
       .stage.grid { display: none !important; }
-      /* 舞台全屏图片：不适合打印 */
       .vocal-stage { display: none !important; }
-      /* AI Canvas 粒子背景 */
       #aiNodesCanvas { display: none !important; }
 
-      /* ── Hero 简化：不占整页，紧凑排列 ── */
+      /* 灯光音响：隐藏灯架图、喇叭模型、信号图 */
+      .light-scene, .audio-scene,
+      .sound-rings, .speaker, .console,
+      .beam-fan, .moving-head, .haze, .floor-reflection,
+      .signal-flow, .signal-run { display: none !important; }
+      /* 保留文字描述 */
+      .systems-grid { display: block !important; }
+      .scene-title, .scene-bullets { display: block !important; }
+
+      /* 音乐制作：隐藏 DAW 窗口、调音台、母带处理器图形 */
+      .daw-window,
+      .mix-console, .channel-strip, .fader, .fader-slot,
+      .plugin-stack, .plugin-window,
+      .eq-screen, .tape-row, .reel, .tape-track { display: none !important; }
+      /* flow-step 只保留文字，隐藏图形容器 */
+      .step-body { display: none !important; }
+
+      /* 产品开发：隐藏 MIDI 链路图、音高可视化 */
+      .product-visual { display: none !important; }
+      .vs-pitch-visual, .vs-staff { display: none !important; }
+
+      /* 新媒体：隐藏剪辑时间线图形 */
+      .edit-timeline { display: none !important; }
+      /* 直播流程图形 */
+      .live-chain { display: none !important; }
+
+      /* ── Hero 简化：紧凑横排，不占整页 ── */
       .hero-page {
         min-height: unset !important;
-        padding: 0 0 16px !important;
+        height: auto !important;
+        padding: 0 0 20px !important;
         background: #fff !important;
-        break-after: avoid;
-        page-break-after: avoid;
+        break-after: avoid !important;
+        page-break-after: avoid !important;
       }
       .hero-inner {
+        display: flex !important;
         flex-direction: row !important;
-        gap: 24px !important;
+        gap: 20px !important;
         align-items: flex-start !important;
+        padding: 0 !important;
       }
-      .hero-photo-wrap { width: 88px !important; flex-shrink: 0 !important; }
-      .hero-photo { width: 88px !important; height: 88px !important; border-radius: 12px !important; }
+      .hero-photo-wrap {
+        width: 80px !important;
+        height: 80px !important;
+        flex: 0 0 80px !important;
+        min-width: 80px !important;
+      }
+      .hero-photo {
+        width: 80px !important;
+        height: 80px !important;
+        border-radius: 10px !important;
+        object-fit: cover !important;
+      }
       .hero-name { font-size: 28px !important; margin-bottom: 4px !important; }
       .hero-eyebrow { font-size: 10px !important; margin-bottom: 6px !important; }
       .hero-tagline { font-size: 13px !important; margin-bottom: 8px !important; }
@@ -2855,10 +2891,15 @@
       .hero-meta { gap: 4px !important; }
       .hero-meta-row { font-size: 11px !important; }
 
-      /* ── 分页控制：主要板块之间换页 ── */
-      .work-stage    { break-before: page; page-break-before: always; }
+      /* ── 分页控制：只在最必要的位置换页 ── */
+      /* 工作经历紧接 Hero，不换页 */
+      .work-stage    { break-before: auto; page-break-before: auto; }
+      /* 核心项目换页 */
       .project-stage { break-before: page; page-break-before: always; }
-      .ai-tools-stage, .new-media-stage, .music-stage-print { break-before: auto; }
+      /* 其余顺序流下去 */
+      .ai-tools-stage, .new-media-stage { break-before: auto; }
+      /* 音乐制作换页 */
+      #musicStage { break-before: page; page-break-before: always; }
 
       /* ── 所有板块：内部不断页 ── */
       .work-stage, .project-stage, .ai-tools-stage,
