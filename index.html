@@ -2838,21 +2838,33 @@
       .vocal-stage { display: none !important; }
       #aiNodesCanvas { display: none !important; }
 
-      /* 灯光音响：只隐藏图形元素，保留文字 */
-      .sound-rings, .speaker, .console,
-      .beam-fan, .moving-head, .haze, .floor-reflection,
-      .signal-flow, .signal-run { display: none !important; }
-      /* 场景容器：去掉动效外壳，保留文字内容 */
+      /* 灯光音响：只隐藏图形子元素，保留 scene-title 和 scene-skills */
+      /* .light-stage 内：隐藏灯架、灯头、光束、地板 */
+      .truss, .light-unit, .floor,
+      .beam-fan, .moving-head, .haze, .floor-reflection { display: none !important; }
+      /* .audio-grid 内：隐藏调音台和音箱 */
+      .console, .speaker-bank,
+      .sound-rings, .speaker, .signal-flow, .signal-run { display: none !important; }
+      /* 场景容器：去掉动效外壳，保留文字内容，覆盖 min-height */
       .light-scene, .audio-scene {
         background: none !important;
         border: none !important;
         box-shadow: none !important;
-        padding: 6px 0 !important;
+        padding: 4px 0 8px !important;
         min-height: 0 !important;
       }
-      /* 保留文字描述 */
+      /* 场景内图形容器：清除高度 */
+      .light-stage, .audio-grid {
+        min-height: 0 !important;
+        height: auto !important;
+        padding: 0 !important;
+        display: block !important;
+      }
+      /* 保留文字描述（类名是 .scene-skills） */
       .systems-grid { display: block !important; }
-      .scene-title, .scene-bullets { display: block !important; }
+      .scene-title { font-size: 13px !important; font-weight: 600 !important; margin-bottom: 4px !important; }
+      .scene-skills { display: block !important; }
+      .scene-skills .skill-item { font-size: 12px !important; line-height: 1.6 !important; }
 
       /* 音乐制作：隐藏 DAW 窗口、调音台、母带处理器图形 */
       .daw-window,
